@@ -9,6 +9,10 @@ export class ProductRepository {
         });
     }
 
+    async totalCount() {
+        return prisma.product.count();
+    }
+
     async findAll(search, page, limit) {
         const where = search ? {
             name: {

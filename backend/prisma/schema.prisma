@@ -32,7 +32,7 @@ model Language {
   id        Int      @id @default(autoincrement())
   key       String   @unique
   en        String
-  sw        String
+  sv        String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

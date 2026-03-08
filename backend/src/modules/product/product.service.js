@@ -6,6 +6,10 @@ export class ProductService {
     }
 
     async seed(total) {
+        const count = await this.productRepository.totalCount();
+        if (count > 0) {
+            return
+        }
         for (let i = 0; i < total; i++) {
             await this.productRepository.create({
                 name: `Product ${i + 1}`,
