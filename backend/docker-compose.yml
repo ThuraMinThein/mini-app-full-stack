@@ -30,6 +30,8 @@ services:
     container_name: backend
     env_file:
       - .env
+    environment:
+      - DATABASE_URL=postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${DATABASE_NAME}
     restart: unless-stopped
     depends_on:
       postgres:

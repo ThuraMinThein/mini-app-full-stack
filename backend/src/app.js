@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './modules/user/user.routes.js';
 import { notFound } from './middlewares/notFount.middleware.js';
 import { errorHandler } from './middlewares/errorHandling.middleware.js';
+import { logging } from './middlewares/logging.middleware.js';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(logging);
 
 app.use('/v1/users', userRoutes);
 

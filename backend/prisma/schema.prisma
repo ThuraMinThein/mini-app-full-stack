@@ -28,7 +28,7 @@ model Product {
   unit        String
 }
 
-model language {
+model Language {
   id        Int      @id @default(autoincrement())
   key       String   @unique
   en        String
