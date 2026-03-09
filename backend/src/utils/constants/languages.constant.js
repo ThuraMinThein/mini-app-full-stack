@@ -14,6 +14,10 @@ export const LANGUAGES = [
     { key: 'login_button', en: 'Login', sv: 'Logga In' },
     { key: 'login_forgot_password', en: "Forgotten password?", sv: 'Glömt lösenord?' },
     { key: 'login_register', en: 'Register', sv: 'Registrera dig' },
+    { key: 'login_password_require', en: 'Password is required', sv: 'Lösenord är obligatorisk' },
+    { key: 'login_email_require', en: 'Email is required', sv: 'E-post är obligatorisk' },
+    { key: 'login_email_invalid', en: 'Email is invalid', sv: 'E-post är ogiltig' },
+    { key: 'login_invalid_credentials', en: 'Invalid credentials', sv: 'Ogiltiga uppgifter' },
 
     { key: 'home_menu', en: 'Menu', sv: 'Meny' },
     { key: 'sidebar_price_list', en: 'Price List', sv: 'Prislista' },

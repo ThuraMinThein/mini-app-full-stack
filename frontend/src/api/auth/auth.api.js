@@ -12,7 +12,7 @@ export const signInAPI = async (data) => {
     );
     const result = await response.json();
 
-    if (!response.ok) return { error: result.message };
+    if (!response.ok) throw { message: result.error };
     return { success: true, data: result };
 };
 
@@ -25,7 +25,8 @@ export const signUpAPI = async (data) => {
         }
     );
     const result = await response.json();
-    if (!response.ok) return { error: result.message };
+
+    if (!response.ok) throw { message: result.error };
     return result;
 };
 
@@ -41,6 +42,6 @@ export const getMeAPI = async () => {
         }
     );
     const result = await response.json();
-    if (!response.ok) return { error: result.message };
+    if (!response.ok) throw { message: result.error };
     return result;
 };

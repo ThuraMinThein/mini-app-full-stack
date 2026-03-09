@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/*" element={UserRouting} />
       </Routes>
-      <Routes>
-        <Route path="/*" element={(<h1>404</h1>)} />
-      </Routes>
+      {/* <Routes>
+        <Route path="/" element={(<h1>404</h1>)} />
+      </Routes> */}
     </>
   )
 }
