@@ -1,5 +1,4 @@
 import { Route, Routes, useRoutes } from 'react-router-dom';
-import './App.css'
 import AuthRouter from './routers/auth.router.jsx';
 import UserRouter from './routers/user.router.jsx';
 
@@ -10,10 +9,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/auth/*" element={AuthRouting} />
+        <Route path="/*" element={AuthRouting} />
       </Routes>
       <Routes>
         <Route path="/*" element={UserRouting} />
+      </Routes>
+      <Routes>
+        <Route path="/*" element={(<h1>404</h1>)} />
       </Routes>
     </>
   )

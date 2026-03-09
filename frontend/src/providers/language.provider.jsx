@@ -1,29 +1,39 @@
 import { createContext, useContext, useState } from "react";
+import { useGetLanguages } from "../hooks/language/language.hook.js";
 
 const initialState = {
   language: "sv",
+  languages: [],
   setLanguage: () => null,
 };
 
 const LanguageProviderContext = createContext(initialState);
 
-function LanguageProvider(
+function LanguageProvider({
   children,
   defaultLanguage = "sv",
   storageKey = "lang",
   ...props
-) {
+}) {
   const [language, setLanguage] = useState(
     () => (localStorage.getItem(storageKey)) || defaultLanguage
   );
 
+
+  const { data: languages, isLoading } = useGetLanguages();
+
   const value = {
     language,
+    languages,
     setLanguage: (lang) => {
       localStorage.setItem(storageKey, lang);
       setLanguage(lang);
     },
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <LanguageProviderContext.Provider {...props} value={value}>

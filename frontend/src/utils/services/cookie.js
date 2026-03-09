@@ -1,8 +1,8 @@
 import Cookies from "js-cookie";
-import { cookieName } from "../key/key";
+import { COOKIE_NAME } from "../key/key";
 
 export function login(token) {
-    Cookies.set(cookieName, token, {
+    Cookies.set(COOKIE_NAME, token, {
         expires: 30,
         secure: true,
         sameSite: "strict",
@@ -10,10 +10,10 @@ export function login(token) {
 }
 
 export function logout() {
-    Cookies.remove(cookieName);
+    Cookies.remove(COOKIE_NAME);
     window.location.reload();
 }
 
 export function getToken() {
-    return Cookies.get(cookieName);
+    return Cookies.get(COOKIE_NAME);
 }

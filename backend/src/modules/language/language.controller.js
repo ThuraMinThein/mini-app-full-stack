@@ -15,8 +15,7 @@ export class LanguageController {
 
     async findAll(req, res) {
         try {
-            const lang = req.query.lang || 'en';
-            const languages = await languageService.findAll(lang);
+            const languages = await languageService.findAll();
             res.status(200).json(languages);
         } catch (error) {
             res.status(500).json({ message: error.message || 'Failed to retrieve languages' });

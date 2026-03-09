@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getLanguages } from "../../api/language/language.api";
+import { getLanguages } from "../../api/language/language.api.js";
 
-export const useGetLanguages = (lang) =>
-    useQuery({ queryFn: () => getLanguages(lang) });
+export const useGetLanguages = () =>
+    useQuery({ queryKey: [`languages`], queryFn: () => getLanguages() });

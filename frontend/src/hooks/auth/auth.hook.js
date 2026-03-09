@@ -11,5 +11,5 @@ export const useSignUp = () =>
         mutationFn: (data) => signUpAPI(data),
     });
 
-export const useGetMe = (options) =>
-    useQuery({ queryKey: ["me"], queryFn: () => getMeAPI(), enabled: options.enabled });
+export const useGetMe = (options = {}) =>
+    useQuery({ queryFn: () => getMeAPI(), enabled: options.enabled });

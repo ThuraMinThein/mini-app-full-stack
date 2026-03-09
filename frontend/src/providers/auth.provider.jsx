@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { getToken, logout } from "../utils/services/cookie.js";
 import { useGetMe } from "../hooks/auth/auth.hook.js";
 
@@ -12,23 +12,24 @@ const initialState = {
 
 const AuthContext = createContext(initialState);
 
-const AuthProvider = (
+const AuthProvider = ({
   children,
   ...props
-) => {
+}) => {
   const [token, setToken] = useState(getToken() || null);
   const { data: user, isLoading, error } = useGetMe({ enabled: !!token });
 
-  const logoutUser = () => {
+  const logoutUser = useCallback(() => {
     setToken(null);
     logout();
-  };
+  }, []);
 
   useEffect(() => {
     if (error) {
+      // eslint-disable-next-line
       logoutUser();
     }
-  }, [error, user]);
+  }, [error, logoutUser]);
 
 
   if (isLoading) {

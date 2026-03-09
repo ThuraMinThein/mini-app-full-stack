@@ -1,16 +1,10 @@
-import { endPoint, version } from "../../utils/key/key";
-import { getToken } from "../../utils/services/cookie";
+import { ENDPOINT, VERSION } from "../../utils/key/key";
 
-export const getLanguages = async (lang) => {
-    const token = getToken();
+export const getLanguages = async () => {
     const response = await fetch(
-        `${endPoint}/${version}/languages`,
+        `${ENDPOINT}/${VERSION}/languages`,
         {
             method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            query: { lang },
         }
     );
     const result = await response.json();

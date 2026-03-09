@@ -17,14 +17,7 @@ export class LanguageService {
         }
     }
 
-    async findAll(lang) {
-        const languages = await this.languageRepository.findAll();
-
-        const response = languages.map(item => ({
-            key: item.key,
-            text: item[lang] || item.en,
-        }));
-
-        return response
+    async findAll() {
+        return this.languageRepository.findAll();
     }
 }

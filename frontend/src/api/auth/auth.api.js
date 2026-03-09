@@ -1,9 +1,9 @@
-import { endPoint, version } from "../../utils/key/key";
+import { ENDPOINT, VERSION } from "../../utils/key/key";
 import { getToken } from "../../utils/services/cookie";
 
 export const signInAPI = async (data) => {
     const response = await fetch(
-        `${endPoint}/${version}/users/sign-in`,
+        `${ENDPOINT}/${VERSION}/users/sign-in`,
         {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ export const signInAPI = async (data) => {
 
 export const signUpAPI = async (data) => {
     const response = await fetch(
-        `${endPoint}/${version}/users`,
+        `${ENDPOINT}/${VERSION}/users`,
         {
             method: "POST",
             body: JSON.stringify(data),
@@ -32,7 +32,7 @@ export const signUpAPI = async (data) => {
 export const getMeAPI = async () => {
     const token = getToken();
     const response = await fetch(
-        `${endPoint}/${version}/users/me`,
+        `${ENDPOINT}/${VERSION}/users/me`,
         {
             method: "GET",
             headers: {

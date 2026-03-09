@@ -1,10 +1,10 @@
-import { endPoint, version } from "../../utils/key/key";
+import { ENDPOINT, VERSION } from "../../utils/key/key";
 import { getToken } from "../../utils/services/cookie";
 
 export const getProducts = async () => {
     const token = getToken();
     const response = await fetch(
-        `${endPoint}/${version}/products`,
+        `${ENDPOINT}/${VERSION}/products`,
         {
             method: "GET",
             headers: {
@@ -20,7 +20,7 @@ export const getProducts = async () => {
 export const updateProduct = async (id, data) => {
     const token = getToken();
     const response = await fetch(
-        `${endPoint}/${version}/products/${id}`,
+        `${ENDPOINT}/${VERSION}/products/${id}`,
         {
             method: "PATCH",
             headers: {
