@@ -13,11 +13,15 @@ const AuthLayout = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
-                    minHeight: "100vh"
+                    minHeight: "100vh",
+                    display: "flex",
+                    flexDirection: "column"
                 }}
             >
                 <Navbar />
-                <Outlet />
+                <main style={{ flexGrow: 1 }}>
+                    <Outlet />
+                </main>
                 <Footer />
             </div>
         </div>

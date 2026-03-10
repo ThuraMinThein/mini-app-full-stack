@@ -1,6 +1,7 @@
 import { Route, Routes, useRoutes } from 'react-router-dom';
 import AuthRouter from './routers/auth.router.jsx';
 import UserRouter from './routers/user.router.jsx';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -14,9 +15,7 @@ function App() {
       <Routes>
         <Route path="/*" element={UserRouting} />
       </Routes>
-      {/* <Routes>
-        <Route path="/" element={(<h1>404</h1>)} />
-      </Routes> */}
+      <ToastContainer position="top-right" autoClose={1500} />
     </>
   )
 }

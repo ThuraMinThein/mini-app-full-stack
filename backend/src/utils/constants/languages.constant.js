@@ -23,7 +23,7 @@ export const LANGUAGES = [
     { key: 'sidebar_price_list', en: 'Price List', sv: 'Prislista' },
     { key: 'sidebar_log_out', en: 'Log Out', sv: 'Logga ut' },
 
-    { key: 'table_search', en: 'Search', sv: 'Sök' },
+    { key: 'table_search', en: 'Search Product', sv: 'Sök Produkttjänst' },
     { key: 'table_article_no', en: 'Article No.', sv: 'Artikelnummer' },
     { key: 'table_product/service', en: 'Product/Service', sv: 'Produkttjänst' },
     { key: 'table_in_price', en: 'In Price', sv: 'In Pris' },
@@ -33,5 +33,11 @@ export const LANGUAGES = [
     { key: 'table_description', en: 'Description', sv: 'Beskrivning' },
 
     { key: 'btn_new_product', en: 'New Product', sv: 'Ny Produkttjänst' },
+    { key: 'btn_print_list', en: 'Print List', sv: 'Skriv ut lista' },
+    { key: 'btn_advanced_mode', en: 'Advanced Mode', sv: 'Avancerad Mod' },
+
+    { key: 'pagination_next', en: 'Next', sv: 'Nästa' },
+    { key: 'pagination_previous', en: 'Previous', sv: 'Föregående' },
+    { key: 'pagination_page', en: 'Page', sv: 'Sida' },
 
 ]

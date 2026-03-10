@@ -1,15 +1,18 @@
-import { Outlet } from "react-router-dom";
-import { logout } from "../../utils/services/cookie";
+import { useSearchParams } from "react-router-dom";
+import PriceListPage from "./price-list.page";
 
 const HomePage = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-            <Outlet />
 
-            <button onClick={() => logout()}>Log out</button>
-        </div>
-    );
+    const [searchParams] = useSearchParams();
+
+    const tab = searchParams.get("tab") || "price-list";
+
+    switch (tab) {
+        case "price-list":
+            return <PriceListPage />
+        default:
+            return <div>Tab Not Found</div>
+    }
 };
 
 export default HomePage;

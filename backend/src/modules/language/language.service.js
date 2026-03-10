@@ -7,12 +7,11 @@ export class LanguageService {
     }
 
     async seed() {
-        const count = await this.languageRepository.totalCount();
-        if (count > 0) {
-            return
-        }
+        const allLanguages = await this.languageRepository.findAll();
+
         const languages = LANGUAGES;
-        for (const language of languages) {
+        const missingLanguages = languages.filter((lang) => !allLanguages.some((l) => l.key === lang.key));
+        for (const language of missingLanguages) {
             await this.languageRepository.create(language);
         }
     }

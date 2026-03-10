@@ -43,40 +43,10 @@
   color: #5e5e5e;
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger span {
-  width: 35px;
-  height: 4px;
-  background: white;
-  transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(4px,9px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(4px,-9px);
-}
-
 @media (max-width: 768px) {
 
   .logo {
     display: none;
-  }
-
-  .hamburger {
-    display: flex;
   }
 
   .nav-menu {

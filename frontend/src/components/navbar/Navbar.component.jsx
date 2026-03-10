@@ -1,14 +1,13 @@
 import { useState } from "react";
 import './Navbar.css'
-import { LanguageSwitch } from "../languageSwitcher/LanguageSwitch.component";
+import LanguageSwitch from "../languageSwitcher/LanguageSwitch.component";
 import { useLanguage } from "../../providers/language.provider";
 import { getLanguage } from "../../utils/services/language";
 import { LOGO } from "../../utils/key/key";
 import { useNavigate } from "react-router-dom";
+import HamburgerMenu from "../hamburger/HamburgerMenu.component";
 
-export default function Navbar() {
-
-
+const Navbar = () => {
 
     const { language, languages, setLanguage } = useLanguage();
     const [open, setOpen] = useState(false);
@@ -21,20 +20,17 @@ export default function Navbar() {
     const aboutUs = getLanguage("header_about", language, languages);
     const contactUs = getLanguage("header_contact", language, languages);
 
+    const onClickMenu = () => {
+        setOpen(!open);
+    }
+
     return (
         <nav className="navbar">
             <div className="nav-container">
 
                 <img onClick={() => navigate('/')} className="logo" src={LOGO} alt="logo" />
 
-                <div
-                    className={`hamburger ${open ? "active" : ""}`}
-                    onClick={() => setOpen(!open)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <HamburgerMenu className="auth-menu" onClickAction={onClickMenu} isOpen={open} />
 
                 <div className="menu-container">
                     <ul className={`nav-menu ${open ? "open" : ""}`}>
@@ -51,3 +47,5 @@ export default function Navbar() {
         </nav>
     );
 }
+
+export default Navbar;

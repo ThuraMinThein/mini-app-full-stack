@@ -21,6 +21,9 @@ export const signUpAPI = async (data) => {
         `${ENDPOINT}/${VERSION}/users`,
         {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(data),
         }
     );

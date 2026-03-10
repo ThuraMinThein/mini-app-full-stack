@@ -1,9 +1,8 @@
+import PriceListContainer from "../../components/priceList/PriceListContainer.component";
 
 const PriceListPage = () => {
     return (
-        <div>
-            <h1>Price List</h1>
-        </div>
+        <PriceListContainer />
     );
 };
 

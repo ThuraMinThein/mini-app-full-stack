@@ -3,7 +3,7 @@ import { useLanguage } from "../../providers/language.provider";
 import { getLanguage } from "../../utils/services/language";
 import './Footer.css'
 
-export default function Footer() {
+const Footer = () => {
     const { language, languages } = useLanguage();
 
     const navigate = useNavigate();
@@ -26,3 +26,5 @@ export default function Footer() {
         </footer>
     );
 }
+
+export default Footer;

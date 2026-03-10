@@ -7,10 +7,6 @@ export class LanguageRepository {
         })
     }
 
-    async totalCount() {
-        return prisma.language.count()
-    }
-
     async findAll() {
         return prisma.language.findMany({
             orderBy: {

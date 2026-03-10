@@ -5,6 +5,7 @@ import OrderPage from "../pages/user/order.page.jsx";
 import OurCustomersPage from "../pages/user/ourCustomers.page.jsx";
 import AboutUsPage from "../pages/user/aboutUs.page.jsx";
 import ContactUsPage from "../pages/user/contactUs.page.jsx";
+import ProtectedRoute from "../components/auth/ProtectedRoute.components.jsx";
 
 
 const AuthRouter = [
@@ -14,11 +15,11 @@ const AuthRouter = [
         children: [
             {
                 path: "signin",
-                element: <SignInPage />,
+                element: <ProtectedRoute><SignInPage /></ProtectedRoute>,
             },
             {
                 path: "signup",
-                element: <SignUpPage />,
+                element: <ProtectedRoute><SignUpPage /></ProtectedRoute>,
             },
             {
                 path: "order",

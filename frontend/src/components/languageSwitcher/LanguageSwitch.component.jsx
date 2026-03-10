@@ -7,7 +7,7 @@ const languages = [
     { code: "sv", label: "Svenska" }
 ];
 
-export const LanguageSwitch = ({ currentLang, onChangeLang }) => {
+const LanguageSwitch = ({ currentLang, onChangeLang }) => {
     const [open, setOpen] = useState(false);
     const switcherRef = useRef(null);
 
@@ -64,3 +64,5 @@ export const LanguageSwitch = ({ currentLang, onChangeLang }) => {
         </div>
     );
 }
+
+export default LanguageSwitch;

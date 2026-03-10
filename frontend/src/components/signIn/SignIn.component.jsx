@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useLogin } from "../../hooks/auth/auth.hook";
 import { FiEye, FiEyeOff } from "react-icons/fi"
 
-export default function SignInForm() {
+const SignInForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { mutate, error, isPending, isError } = useLogin();
     const { language, languages } = useLanguage();
@@ -97,3 +97,5 @@ export default function SignInForm() {
         </form>
     );
 }
+
+export default SignInForm;
