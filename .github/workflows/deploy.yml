@@ -1,0 +1,59 @@
+name: CI/CD Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Frontend Build
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
+  deploy:
+
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Deploy to EC2
+
+        uses: appleboy/ssh-action@v1
+
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          script: |
+
+            cd mini-app-full-stack
+
+            git pull origin main
+
+            cd frontend
+
+            npm i
+
+            npm run build
+
+            docker-compose up -d --build
