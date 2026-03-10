@@ -40,26 +40,24 @@ const PriceListContainer = () => {
         <div className="price-list-container">
             <div className="price-list-actions">
                 <div className="search-section">
-                    <div className="search-input-wrapper">
-                        <input
-                            type="text"
-                            placeholder={tableSearch + '...'}
-                            value={search}
-                            onChange={(e) => updateParams({ search: e.target.value, page: 1 })}
-                        />
-                        <span className="search-icon"><FiSearch /></span>
-                    </div>
+                    <input
+                        type="text"
+                        placeholder={tableSearch + '...'}
+                        value={search}
+                        onChange={(e) => updateParams({ search: e.target.value, page: 1 })}
+                    />
+                    <span className="search-icon"><FiSearch /></span>
                 </div>
 
                 <div className="action-buttons">
-                    <button className="btn btn-outline btn-new-product">
-                        {btnNewProduct} <FiPlusCircle />
+                    <button>
+                        <span className='text'>{btnNewProduct}</span> <span className="icon"><FiPlusCircle /></span>
                     </button>
-                    <button className="btn btn-outline">
-                        {btnPrintList} <FiPrinter />
+                    <button>
+                        <span className='text'>{btnPrintList}</span> <span className="icon"><FiPrinter /></span>
                     </button>
-                    <button className="btn btn-outline">
-                        {btnAdvancedMode} <FiToggleRight />
+                    <button>
+                        <span className='text'>{btnAdvancedMode}</span> <span className="icon"><FiToggleRight /></span>
                     </button>
                 </div>
             </div>
