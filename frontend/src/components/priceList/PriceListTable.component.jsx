@@ -31,11 +31,11 @@ const PriceListTable = ({ search, page, updateParams }) => {
 
     return (
         <>
-            <table className="price-list-table">
+            <table>
                 <thead>
                     <tr>
-                        <th>{tableArticleNo} <span className="sort-icon desc"></span></th>
-                        <th>{tableProductService} <span className="sort-icon desc"></span></th>
+                        <th>{tableArticleNo}</th>
+                        <th>{tableProductService}</th>
                         <th>{tableInPrice}</th>
                         <th>{tablePrice}</th>
                         <th>{tableUnit}</th>
@@ -47,46 +47,46 @@ const PriceListTable = ({ search, page, updateParams }) => {
                     {data.products.map((row) => (
                         <tr key={row.id}>
                             <td className="cell-indicator">
-                                <span className="cell-content rounded-cell">{row.id}</span>
+                                <span className="cell-content">{row.id}</span>
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.name}
                                     onSave={(val) => updateProduct(row.id, { name: val })}
                                 />
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.inPrice}
                                     onSave={(val) => updateProduct(row.id, { price: val })}
                                 />
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.price}
                                     onSave={(val) => updateProduct(row.id, { price: val })}
                                 />
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.unit}
                                     onSave={(val) => updateProduct(row.id, { unit: val })}
                                 />
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.inStock}
                                     onSave={(val) => updateProduct(row.id, { inStock: val })}
                                 />
                             </td>
                             <td>
                                 <EditableCell
-                                    className="cell-content rounded-cell"
+                                    className="cell-content"
                                     value={row.description}
                                     onSave={(val) => updateProduct(row.id, { description: val })}
                                 />
@@ -97,17 +97,15 @@ const PriceListTable = ({ search, page, updateParams }) => {
             </table>
             <div className="pagination">
                 <button
-                    className="page-btn"
                     disabled={page === 1}
                     onClick={() => updateParams({ page: page - 1 })}
                 >
                     {paginatePrevious}
                 </button>
 
-                <span className="page-info">{paginatePage}: {page}</span>
+                <span>{paginatePage}: {page}</span>
 
                 <button
-                    className="page-btn"
                     disabled={!data.metaData.hasNextPage}
                     onClick={() => updateParams({ page: page + 1 })}
                 >

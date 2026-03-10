@@ -1,6 +1,5 @@
 import { validationResult } from "express-validator";
 import { ProductService } from "./product.service.js";
-import { parsePrismaError } from "../../helper/prismaErrorParsing/prismaErrorParsing.helper.js";
 
 const productService = new ProductService();
 
@@ -12,7 +11,7 @@ export class ProductController {
             await productService.seed(total);
             return res.status(200).json({ message: "Seeded" });
         } catch (error) {
-            return res.status(500).json({ message: parsePrismaError(error) });
+            return res.status(500).json({ message: error });
         }
     }
 
@@ -25,7 +24,7 @@ export class ProductController {
             const product = await productService.create(req.body);
             return res.status(201).json(product);
         } catch (error) {
-            return res.status(500).json({ message: parsePrismaError(error) });
+            return res.status(500).json({ message: error });
         }
     }
 
@@ -35,7 +34,7 @@ export class ProductController {
             const result = await productService.findAll(search, page ? parseInt(page) : 1, limit ? parseInt(limit) : 10);
             return res.status(200).json(result);
         } catch (error) {
-            return res.status(500).json({ message: parsePrismaError(error) });
+            return res.status(500).json({ message: error });
         }
     }
 
@@ -49,7 +48,7 @@ export class ProductController {
             const product = await productService.update(id, req.body);
             return res.status(200).json(product);
         } catch (error) {
-            return res.status(500).json({ message: parsePrismaError(error) });
+            return res.status(500).json({ message: error });
         }
     }
 
