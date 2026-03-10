@@ -1,0 +1,35 @@
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    display: none;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .auth-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-menu {
+        display: flex;
+    }
+}

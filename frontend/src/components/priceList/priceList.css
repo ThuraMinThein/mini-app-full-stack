@@ -1,0 +1,193 @@
+.price-list-container {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.price-list-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 280px;
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 10px 40px 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+}
+
+.search-input-wrapper input:focus {
+    border-color: #93c5fd;
+    background-color: #ffffff;
+}
+
+.search-input-wrapper input::placeholder {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.search-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #60a5fa;
+    font-size: 14px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: not-allowed;
+    transition: all 0.2s;
+}
+
+.btn-outline {
+    background-color: white;
+    border: 1px solid #f1f5f9;
+    color: #64748b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.price-list-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 16px;
+    white-space: nowrap;
+    min-width: 900px;
+}
+
+.price-list-table th {
+    text-align: left;
+    padding: 0 16px 8px 16px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+.sort-icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+.sort-icon.desc {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid #60a5fa;
+}
+
+.price-list-table td {
+    padding: 0 6px;
+}
+
+.price-list-table td:first-child {
+    padding-left: 0;
+}
+
+.cell-content.rounded-cell {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background-color: #ffffff;
+    font-size: 13px;
+    color: #334155;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.cell-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.page-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #cfd7e3;
+    background: #f7f9fc;
+    color: #4a5a70;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #eef2f7;
+    border-color: #b8c4d6;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-size: 14px;
+    color: #4a5a70;
+}
+
+@media (max-width: 768px) {
+    .price-list-actions {
+        flex-direction: column;
+    }
+    
+    .search-input-wrapper {
+        width: 100%;
+    }
+    
+    .search-section {
+        width: 100%;
+    }
+}
