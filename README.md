@@ -35,6 +35,21 @@ Cors: 2
 Prisma Client: 7
 ```
 
+Database
+```
+PostgreSQL: 17
+```
+
+Deployment
+```
+EC2 (AWS)
+```
+
+CI/CD
+```
+GitHub Action
+```
+
 ## Website
 
 [Mini_Price_List](https://miniapp.thuraminthein.dev/)
