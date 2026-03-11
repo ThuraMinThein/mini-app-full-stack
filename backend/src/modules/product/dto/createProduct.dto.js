@@ -3,8 +3,12 @@ import { body } from "express-validator";
 export const createProductValidation = [
     body("name")
         .notEmpty()
-        .withMessage("Name is required"),
-    body("description"),
+        .withMessage("Name is required")
+        .isString()
+        .withMessage("Name must be a string"), ,
+    body("description")
+        .isString()
+        .withMessage("Description must be a string"), ,
     body("price")
         .notEmpty()
         .withMessage("Price is required")
@@ -22,5 +26,7 @@ export const createProductValidation = [
         .withMessage("Stock must be a positive integer"),
     body("unit")
         .notEmpty()
-        .withMessage("Unit is required"),
+        .withMessage("Unit is required")
+        .isString()
+        .withMessage("Unit must be a string"),
 ];
