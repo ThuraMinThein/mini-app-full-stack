@@ -60,7 +60,7 @@ const PriceListTable = ({ search, page, updateParams }) => {
                                 <EditableCell
                                     className="cell-content"
                                     value={row.inPrice}
-                                    onSave={(val) => updateProduct(row.id, { price: val })}
+                                    onSave={(val) => updateProduct(row.id, { inPrice: val })}
                                 />
                             </td>
                             <td>
