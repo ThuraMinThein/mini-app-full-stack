@@ -38,6 +38,6 @@ export const updateProduct = async (id, data) => {
         }
     );
     const result = await response.json();
-    if (!response.ok) throw { error: result.errors[0]?.msg };
+    if (!response.ok) throw { error: result?.errors?.[0]?.msg || "Request failed" };
     return result;
 }
