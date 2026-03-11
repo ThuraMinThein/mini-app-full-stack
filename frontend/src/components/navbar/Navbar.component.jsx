@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './Navbar.css'
 import LanguageSwitch from "../languageSwitcher/LanguageSwitch.component";
 import { useLanguage } from "../../providers/language.provider";
@@ -10,9 +10,31 @@ import HamburgerMenu from "../hamburger/HamburgerMenu.component";
 const Navbar = () => {
 
     const { language, languages, setLanguage } = useLanguage();
+    const switcherRef = useRef(null);
     const [open, setOpen] = useState(false);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                switcherRef.current &&
+                !switcherRef.current.contains(event.target)
+            ) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+    });
 
     const home = getLanguage("header_home", language, languages);
     const order = getLanguage("header_order", language, languages);
@@ -25,7 +47,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar">
+        <nav className="navbar" ref={switcherRef}>
             <div className="nav-container">
 
                 <img onClick={() => navigate('/')} className="logo" src={LOGO} alt="logo" />

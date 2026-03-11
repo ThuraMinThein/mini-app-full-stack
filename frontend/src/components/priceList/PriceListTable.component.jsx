@@ -3,8 +3,8 @@ import { useLanguage } from "../../providers/language.provider";
 import { getLanguage } from "../../utils/services/language";
 import EditableCell from "../editableCell/EditableCell.component";
 
-const PriceListTable = ({ search, page, updateParams }) => {
-    const { data, isFetching } = useGetProducts({ search, page, limit: 15 });
+const PriceListTable = ({ search, idSearch, page, updateParams }) => {
+    const { data, isFetching } = useGetProducts({ search, idSearch, page, limit: 15 });
 
     const { mutate } = useUpdateProduct()
 

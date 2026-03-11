@@ -2,13 +2,14 @@ import { ENDPOINT, VERSION } from "../../utils/key/key";
 import { getToken } from "../../utils/services/cookie";
 
 export const getProducts = async (props) => {
-    const { search, page, limit } = props;
+    const { search, idSearch, page, limit } = props;
     const token = getToken();
 
     const param = new URLSearchParams();
     if (page) param.append("page", page.toString());
     if (limit) param.append("limit", limit.toString());
     if (search) param.append("search", search);
+    if (idSearch) param.append("idSearch", idSearch);
 
     const response = await fetch(
         `${ENDPOINT}/${VERSION}/products?${param}`,

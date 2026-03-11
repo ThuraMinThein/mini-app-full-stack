@@ -13,13 +13,14 @@ export class ProductRepository {
         return prisma.product.count();
     }
 
-    async findAll(search, page, limit) {
+    async findAll(search, idSearch, page, limit) {
         const where = search ? {
             name: {
                 contains: search,
                 mode: "insensitive"
             }
-        } : {};
+        } : idSearch ? { id: idSearch } : {};
+        console.log(idSearch, where)
         const products = await prisma.product.findMany({
             where,
             skip: (page - 1) * limit,

@@ -26,8 +26,8 @@ export class ProductService {
         return this.productRepository.create();
     }
 
-    async findAll(search, page, limit) {
-        return this.productRepository.findAll(search, page, limit);
+    async findAll(search, idSearch, page, limit) {
+        return this.productRepository.findAll(search, idSearch, page, limit);
     }
 
     async update(id, data) {

@@ -24,6 +24,7 @@ export const LANGUAGES = [
     { key: 'sidebar_log_out', en: 'Log Out', sv: 'Logga ut' },
 
     { key: 'table_search', en: 'Search Product', sv: 'Sök Produkttjänst' },
+    { key: 'table_article_no_search', en: 'Search Article No.', sv: 'Sök Artikelnummer' },
     { key: 'table_article_no', en: 'Article No.', sv: 'Artikelnummer' },
     { key: 'table_product/service', en: 'Product/Service', sv: 'Produkttjänst' },
     { key: 'table_in_price', en: 'In Price', sv: 'In Pris' },

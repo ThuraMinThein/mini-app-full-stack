@@ -30,8 +30,8 @@ export class ProductController {
 
     async getAll(req, res) {
         try {
-            const { search, page, limit } = req.query;
-            const result = await productService.findAll(search, page ? parseInt(page) : 1, limit ? parseInt(limit) : 10);
+            const { search, idSearch, page, limit } = req.query;
+            const result = await productService.findAll(search, idSearch ? parseInt(idSearch) : null, page ? parseInt(page) : 1, limit ? parseInt(limit) : 10);
             return res.status(200).json(result);
         } catch (error) {
             return res.status(500).json({ message: error });

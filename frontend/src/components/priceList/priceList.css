@@ -13,15 +13,25 @@
     justify-content: space-between;
 }
 
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .search-section {
+    display: flex;
     position: relative;
-    gap: 10px;
+    gap: 20px;
 }
 
 input {
-    padding: 10px 40px 10px 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    width: 400px;
+    height: 45px;
+    padding: 20px 40px 20px 20px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 50px;
     font-size: 14px;
 }
 
@@ -33,19 +43,34 @@ input:focus {
 .search-icon {
     position: absolute;
     top: 50%;
-    left: 200px;
+    right: 20px;
     transform: translateY(-50%);
     color: #41c7dc
 }
 
 .action-buttons {
     display: flex;
+    height: 45px;
     gap: 10px;
+    color: white;
+}
+
+.plus {
+    color:rgb(19, 230, 0);
+}
+
+.printer {
+    color:rgb(50, 139, 255);
+}
+
+.toggle {
+    color:rgb(75, 123, 255);
 }
 
 .action-buttons button {
     padding: 10px 24px;
-    border: 1px solid #ccc;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     border-radius: 30px;
     background-color: #ffffff;
     color: #000000;
@@ -136,6 +161,21 @@ td:hover, th:hover {
     font-size: 14px;
 }
 
+@media (max-width: 1200px) {
+    .action-buttons .text {
+        display: none;
+    }
+
+    .action-buttons button {
+        padding: 8px 30px;
+    }
+
+    .action-buttons .icon {
+        font-size: 24px;
+    }
+
+}
+
 @media (max-width: 1024px) {
     .price-list-actions {
         flex-direction: column;
@@ -143,17 +183,13 @@ td:hover, th:hover {
         gap: 10px;
     }
 
-    .action-buttons button {
-        padding: 8px 30px;
+    input {
+        width: 100%;
     }
 
-    
-    .action-buttons .text {
-        display: none;
+    .action-buttons {
+        width: 100%;
+        justify-content: space-evenly;
     }
 
-    .action-buttons .icon {
-        font-size: 20px;
-
-    }
 }
