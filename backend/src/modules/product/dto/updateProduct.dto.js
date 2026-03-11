@@ -11,16 +11,19 @@ export const updateProductValidation = [
         .withMessage("Description must be a string"),
     body("price")
         .optional()
-        .isFloat({ gt: 0 })
-        .withMessage("Price must be a positive number"),
+        .isFloat({ min: 0 })
+        .withMessage("Price must be a positive number")
+        .toFloat(),
     body("inPrice")
         .optional()
-        .isFloat({ gt: 0 })
-        .withMessage("In Price must be a positive number"),
+        .isFloat({ min: 0 })
+        .withMessage("In Price must be a positive number")
+        .toFloat(),
     body("inStock")
         .optional()
-        .isInt({ gt: 0 })
-        .withMessage("Stock must be a positive integer"),
+        .isInt({ min: 0 })
+        .withMessage("Stock must be a positive integer")
+        .toInt(),
     body("unit")
         .optional()
         .isString()
