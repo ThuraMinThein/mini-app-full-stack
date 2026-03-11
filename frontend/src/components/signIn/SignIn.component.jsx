@@ -32,7 +32,9 @@ const SignInForm = () => {
     const loginButton = getLanguage("login_button", language, languages);
     const loginRegister = getLanguage("login_register", language, languages);
     const loginForgotPassword = getLanguage("login_forgot_password", language, languages);
-    const loginPasswordRequired = getLanguage("login_password_require", language, languages)
+    const loginPasswordRequired = getLanguage("login_password_require", language, languages);
+    const loginEmailRequired = getLanguage('login_email_require', language, languages);
+    const loginInvalidEmail = getLanguage('login_email_invalid', language, languages)
 
     return (
         <form className='login' onSubmit={handleSubmit(onSubmit)}>
@@ -44,10 +46,10 @@ const SignInForm = () => {
                         type="text"
                         placeholder={loginEmailPlaceholder}
                         {...register("email", {
-                            required: loginPasswordRequired,
+                            required: loginEmailRequired,
                             validate: (value) => {
                                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                return emailRegex.test(value) || "Invalid email";
+                                return emailRegex.test(value) || loginInvalidEmail;
                             }
                         })} />
                     {errors.email && (
@@ -62,7 +64,7 @@ const SignInForm = () => {
                             type={showPassword ? "text" : "password"}
                             placeholder={loginPasswordPlaceholder}
                             {...register("password", {
-                                required: "Password is required",
+                                required: loginPasswordRequired,
                             })}
                         />
                         <span
