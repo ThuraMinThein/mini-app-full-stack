@@ -19,8 +19,10 @@ const EditableCell = ({ value, onSave, ...props }) => {
         }
     };
 
-    const handleBlur = () => {
-        setInput(value);
+    const handleBlur = async () => {
+        if (input !== value) {
+            await onSave(input);
+        }
         setEditing(false);
     };
 
