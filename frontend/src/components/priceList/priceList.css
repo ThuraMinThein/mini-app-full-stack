@@ -303,10 +303,6 @@ td:hover, th:hover {
         table-layout: auto;
     }
 
-    .table-wrapper {
-        overflow-x: hidden;
-    }
-
     .cell-content {
         padding: 8px 12px;
     }
