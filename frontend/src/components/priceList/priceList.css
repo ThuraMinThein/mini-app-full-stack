@@ -305,6 +305,11 @@ tr:hover {
         min-width: 85px;
     }
 
+    .table-wrapper {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
     table {
         width: 100%;
         min-width: 0;
