@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useGetProducts, useUpdateProduct } from "../../hooks/product/product.hook";
 import { useLanguage } from "../../providers/language.provider";
 import { getLanguage } from "../../utils/services/language";
 import EditableCell from "../editableCell/EditableCell.component";
+import { FiArrowRight } from "react-icons/fi"
 
 const PriceListTable = ({ search, idSearch, page, updateParams }) => {
+    const [selectedRowId, setSelectedRowId] = useState(null);
     const { data, isFetching } = useGetProducts({ search, idSearch, page, limit: 15 });
 
     const { mutate } = useUpdateProduct()
@@ -35,6 +38,7 @@ const PriceListTable = ({ search, idSearch, page, updateParams }) => {
                 <table>
                     <thead>
                         <tr>
+                            <th className="col-indicator"></th>
                             <th className="col-article">{tableArticleNo}</th>
                             <th className="col-name">{tableProductService}</th>
                             <th className="col-inprice">{tableInPrice}</th>
@@ -42,11 +46,19 @@ const PriceListTable = ({ search, idSearch, page, updateParams }) => {
                             <th className="col-unit">{tableUnit}</th>
                             <th className="col-instock">{tableInStock}</th>
                             <th className="col-description">{tableDescription}</th>
+                            <th className="col-actions"></th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.products.map((row) => (
-                            <tr key={row.id}>
+                            <tr
+                                key={row.id}
+                                className={selectedRowId === row.id ? "selected" : ""}
+                                onClick={() => setSelectedRowId(row.id)}
+                            >
+                                <td className="col-indicator">
+                                    {selectedRowId === row.id && <FiArrowRight className="row-arrow" />}
+                                </td>
                                 <td className="col-article">
                                     <span className="cell-content">{row.id}</span>
                                 </td>
@@ -91,6 +103,9 @@ const PriceListTable = ({ search, idSearch, page, updateParams }) => {
                                         value={row.description}
                                         onSave={(val) => updateProduct(row.id, { description: val })}
                                     />
+                                </td>
+                                <td className="col-actions">
+                                    <span className="row-menu">⋯</span>
                                 </td>
                             </tr>
                         ))}
