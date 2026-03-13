@@ -3,7 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     gap: 20px;
 }
 
@@ -23,17 +23,6 @@
     display: flex;
     position: relative;
     gap: 20px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type='number'] {
-  -moz-appearance: textfield;
-  appearance: textfield;
 }
 
 input {
@@ -56,7 +45,7 @@ input:focus {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-    color: #41c7dc
+    color: #41c7dc;
 }
 
 .action-buttons {
@@ -92,13 +81,14 @@ input:focus {
 .table-wrapper {
     width: 100%;
     height: 100%;
-    padding: 20px;
-    overflow: auto;
+    min-height: 16rem;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     font-size: 14px;
-    overflow-x: auto; 
-    overflow-y: scroll;
-    border-collapse: collapse;
     margin-top: 20px;
+    padding: 20px;
+    border-collapse: collapse;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -106,17 +96,19 @@ input:focus {
 }
 
 table {
-    min-width: 1200px;
-    width: max-content;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 td, th {
-    max-width: 160px;
+    padding: 4px 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
     cursor: default;
+    vertical-align: middle;
 }
 
 td:hover, th:hover {
@@ -127,22 +119,64 @@ td:hover, th:hover {
     background-color: #f9f9f9;
 }
 
-.cell-indicator {
-    display: flex;
+.col-indicator {
+    width: 28px;
+    padding: 4px 2px;
+    text-align: center;
+}
+
+.col-article {
+    width: 120px;
+    min-width: 100px;
+}
+
+.col-name {
+    width: auto;
+    min-width: 200px;
+}
+
+.col-inprice {
+    width: 100px;
+    min-width: 90px;
+}
+
+.col-price {
+    width: 110px;
+    min-width: 90px;
+}
+
+.col-unit {
+    width: 130px;
+    min-width: 110px;
+}
+
+.col-instock {
+    width: 100px;
+    min-width: 90px;
+}
+
+.col-description {
+    width: auto;
+    min-width: 200px;
 }
 
 .cell-content {
     display: block;
     width: 100%;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: 1px solid #a3d2da;
     border-radius: 30px;
     box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .pagination {
     display: flex;
     justify-content: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
     gap: 10px;
 }
 
@@ -173,6 +207,15 @@ td:hover, th:hover {
 }
 
 @media (max-width: 1200px) {
+    .col-inprice,
+    .col-description {
+        display: none;
+    }
+
+    .col-name {
+        min-width: 180px;
+    }
+
     .action-buttons .text {
         display: none;
     }
@@ -190,8 +233,12 @@ td:hover, th:hover {
 @media (max-width: 1024px) {
     .price-list-actions {
         flex-direction: column;
-        align-items: left;
+        align-items: flex-start;
         gap: 10px;
+    }
+
+    .search-container {
+        width: 100%;
     }
 
     input {
@@ -200,7 +247,67 @@ td:hover, th:hover {
 
     .action-buttons {
         width: 100%;
+        height: 45px;
         justify-content: space-evenly;
     }
 
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 560px;
+    }
+
+    .col-name {
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-instock,
+    .col-unit {
+        display: none;
+    }
+
+    table {
+        min-width: 400px;
+    }
+
+    .col-name {
+        min-width: 200px;
+    }
+
+    .col-article {
+        width: 100px;
+        min-width: 85px;
+    }
+}
+
+@media (max-width: 600px) {
+    .col-article {
+        display: none;
+    }
+
+    .col-name {
+        min-width: 0;
+    }
+
+    .col-price {
+        width: 100px;
+        min-width: 85px;
+    }
+
+    table {
+        width: 100%;
+        table-layout: auto;
+    }
+
+    .table-wrapper {
+        overflow-x: hidden;
+    }
+
+    .cell-content {
+        padding: 8px 12px;
+    }
 }

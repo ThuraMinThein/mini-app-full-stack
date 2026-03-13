@@ -47,10 +47,15 @@ const PriceListContainer = () => {
                 <div className='search-container'>
                     <div className="search-section">
                         <input
-                            type="number"
-                            placeholder={tableArticleNoSearch + '...'}
+                            placeholder={tableArticleNoSearch}
                             value={idSearch}
-                            onChange={(e) => updateParams({ article_number_search: e.target.value, page: 1 })}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                if (value === '' || /^[0-9]+$/.test(value)) {
+                                    updateParams({ article_number_search: value, page: 1 });
+                                }
+                            }}
+                            inputMode='number'
                         />
                         <span className="search-icon"><FiSearch /></span>
                     </div>
@@ -79,14 +84,12 @@ const PriceListContainer = () => {
                 </div>
             </div>
 
-            <div className="table-wrapper">
-                <PriceListTable
-                    search={debouncedSearch}
-                    idSearch={debouncedIdSearch}
-                    page={page}
-                    updateParams={updateParams}
-                />
-            </div>
+            <PriceListTable
+                search={debouncedSearch}
+                idSearch={debouncedIdSearch}
+                page={page}
+                updateParams={updateParams}
+            />
         </div>
     );
 };

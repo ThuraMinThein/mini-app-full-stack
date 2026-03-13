@@ -31,70 +31,72 @@ const PriceListTable = ({ search, idSearch, page, updateParams }) => {
 
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th>{tableArticleNo}</th>
-                        <th>{tableProductService}</th>
-                        <th>{tableInPrice}</th>
-                        <th>{tablePrice}</th>
-                        <th>{tableUnit}</th>
-                        <th>{tableInStock}</th>
-                        <th>{tableDescription}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.products.map((row) => (
-                        <tr key={row.id}>
-                            <td className="cell-indicator">
-                                <span className="cell-content">{row.id}</span>
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.name}
-                                    onSave={(val) => updateProduct(row.id, { name: val })}
-                                />
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.inPrice}
-                                    onSave={(val) => updateProduct(row.id, { inPrice: val })}
-                                />
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.price}
-                                    onSave={(val) => updateProduct(row.id, { price: val })}
-                                />
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.unit}
-                                    onSave={(val) => updateProduct(row.id, { unit: val })}
-                                />
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.inStock}
-                                    onSave={(val) => updateProduct(row.id, { inStock: val })}
-                                />
-                            </td>
-                            <td>
-                                <EditableCell
-                                    className="cell-content"
-                                    value={row.description}
-                                    onSave={(val) => updateProduct(row.id, { description: val })}
-                                />
-                            </td>
+            <div className="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th className="col-article">{tableArticleNo}</th>
+                            <th className="col-name">{tableProductService}</th>
+                            <th className="col-inprice">{tableInPrice}</th>
+                            <th className="col-price">{tablePrice}</th>
+                            <th className="col-unit">{tableUnit}</th>
+                            <th className="col-instock">{tableInStock}</th>
+                            <th className="col-description">{tableDescription}</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {data.products.map((row) => (
+                            <tr key={row.id}>
+                                <td className="col-article">
+                                    <span className="cell-content">{row.id}</span>
+                                </td>
+                                <td className="col-name">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.name}
+                                        onSave={(val) => updateProduct(row.id, { name: val })}
+                                    />
+                                </td>
+                                <td className="col-inprice">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.inPrice}
+                                        onSave={(val) => updateProduct(row.id, { inPrice: val })}
+                                    />
+                                </td>
+                                <td className="col-price">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.price}
+                                        onSave={(val) => updateProduct(row.id, { price: val })}
+                                    />
+                                </td>
+                                <td className="col-unit">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.unit}
+                                        onSave={(val) => updateProduct(row.id, { unit: val })}
+                                    />
+                                </td>
+                                <td className="col-instock">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.inStock}
+                                        onSave={(val) => updateProduct(row.id, { inStock: val })}
+                                    />
+                                </td>
+                                <td className="col-description">
+                                    <EditableCell
+                                        className="cell-content"
+                                        value={row.description}
+                                        onSave={(val) => updateProduct(row.id, { description: val })}
+                                    />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             <div className="pagination">
                 <button
                     disabled={page === 1}
