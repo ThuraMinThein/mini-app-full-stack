@@ -1,10 +1,7 @@
+import SignUpForm from "../../components/auth/signup/SignUp.component.jsx";
 
 const SignUpPage = () => {
-    return (
-        <div>
-            <h1>Sign Up</h1>
-        </div>
-    );
+    return <SignUpForm />;
 };
 
 export default SignUpPage;

@@ -20,10 +20,23 @@ export const useLogin = () => {
     });
 }
 
-export const useSignUp = () =>
-    useMutation({
+export const useSignUp = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { setToken } = useAuth();
+    const from = location.state?.from?.pathname || "/";
+
+    return useMutation({
         mutationFn: (data) => signUpAPI(data),
+
+        onSuccess: ({ data }) => {
+            login(data.accessToken);
+            setToken(data.accessToken);
+            navigate(from, { replace: true });
+        },
     });
+}
 
 export const useGetMe = (options = {}) =>
     useQuery({ queryKey: ["me"], queryFn: () => getMeAPI(), enabled: options.enabled });

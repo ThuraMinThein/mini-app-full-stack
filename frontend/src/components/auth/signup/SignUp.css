@@ -1,0 +1,134 @@
+.register {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, sans-serif;
+}
+
+.register-container {
+  width: 40rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 40px;
+  padding: 40px 50px;
+
+  margin: 0 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.register-container > span {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}
+
+.register-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.register-input label {
+  font-size: 16px;
+  color: #222;
+}
+
+.register-input input {
+  padding: 16px 20px;
+  width: 100%;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.register-input input:focus {
+  border-color: #999;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.register-button {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+
+  background: #0aa11b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+
+  width: 220px;
+  align-self: center;
+}
+
+.register-button:hover {
+  background: #088f17;
+}
+
+.register-footer {
+  margin-top: 18px;
+
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+
+  font-size: 15px;
+}
+
+.register-footer span {
+  cursor: pointer;
+  color: #222;
+}
+
+.register-footer span:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+
+  .register-container {
+    padding: 40px 25px;
+  }
+
+  .register-container > span {
+    font-size: 32px;
+  }
+
+  .register-button {
+    width: 100%;
+  }
+}

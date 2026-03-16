@@ -16,6 +16,10 @@ const ProtectedRoute = ({
         return <Navigate to={"/"} replace />;
     }
 
+    if (location.pathname == "/signup" && isAuthenticated) {
+        return <Navigate to={"/"} replace />;
+    }
+
     return <>{children}</>;
 };
 

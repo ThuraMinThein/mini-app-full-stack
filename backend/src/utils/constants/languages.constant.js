@@ -6,6 +6,14 @@ export const LANGUAGES = [
     { key: 'header_about', en: 'About Us', sv: 'Om Oss' },
     { key: 'header_contact', en: 'Contact Us', sv: 'Kontakta Oss' },
 
+    { key: 'register', en: 'Register', sv: 'Registrera dig' },
+    { key: 'register_name_label', en: 'Name', sv: 'Namn' },
+    { key: 'register_name_placeholder', en: 'Enter Name', sv: 'Skriv in namn' },
+    { key: 'register_name_required', en: 'Name is required', sv: 'Namn är obligatorisk' },
+    { key: 'register_confirm_password_label', en: 'Confirm Password', sv: 'Bekräfta Lösenord' },
+    { key: 'register_confirm_password_placeholder', en: 'Confirm Password', sv: 'Bekräfta Lösenord' },
+    { key: 'register_password_do_not_match', en: 'Passwords do not match', sv: 'Lösenorden matchar inte' },
+
     { key: 'login_title', en: 'Login', sv: 'Logga In' },
     { key: 'login_email_label', en: 'Email', sv: 'Skriv in din epost adress' },
     { key: 'login_email_placeholder', en: 'Email', sv: 'E-post adress' },

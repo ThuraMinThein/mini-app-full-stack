@@ -1,11 +1,11 @@
-import { useLanguage } from "../../providers/language.provider";
 import { useForm } from "react-hook-form";
-import { getLanguage } from "../../utils/services/language";
 import { useNavigate } from "react-router-dom";
 import "./SignIn.css"
 import { useState } from "react";
-import { useLogin } from "../../hooks/auth/auth.hook";
 import { FiEye, FiEyeOff } from "react-icons/fi"
+import { useLanguage } from "../../../providers/language.provider.jsx";
+import { useLogin } from "../../../hooks/auth/auth.hook.js";
+import { getLanguage } from "../../../utils/services/language.js";
 
 const SignInForm = () => {
     const [showPassword, setShowPassword] = useState(false);

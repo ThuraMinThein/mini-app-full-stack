@@ -19,7 +19,7 @@ const AuthRouter = [
             },
             {
                 path: "signup",
-                element: <ProtectedRoute><SignUpPage /></ProtectedRoute>,
+                element: <ProtectedRoute redirectTo="/signup"><SignUpPage /></ProtectedRoute>,
             },
             {
                 path: "order",

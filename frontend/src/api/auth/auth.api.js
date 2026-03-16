@@ -30,7 +30,7 @@ export const signUpAPI = async (data) => {
     const result = await response.json();
 
     if (!response.ok) throw { message: result.error };
-    return result;
+    return { success: true, data: result };
 };
 
 export const getMeAPI = async () => {
