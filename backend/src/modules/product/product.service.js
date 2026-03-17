@@ -23,7 +23,7 @@ export class ProductService {
     }
 
     async create(data) {
-        return this.productRepository.create();
+        return this.productRepository.create(data);
     }
 
     async findAll(search, idSearch, page, limit) {

@@ -130,7 +130,6 @@ const SignUpForm = () => {
 
                 <button
                     className="register-button"
-                    onClick={() => { }}
                     type="submit"
                     disabled={isPending}
                 >

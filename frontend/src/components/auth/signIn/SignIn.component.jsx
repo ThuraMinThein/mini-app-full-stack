@@ -80,7 +80,6 @@ const SignInForm = () => {
                 </div>
                 <button
                     className="login-button"
-                    onClick={() => { }}
                     type="submit"
                     disabled={isPending}
                 >

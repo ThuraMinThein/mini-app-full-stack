@@ -13,17 +13,20 @@ export const createProductValidation = [
         .notEmpty()
         .withMessage("Price is required")
         .isFloat({ gt: 0 })
-        .withMessage("Price must be a positive number"),
+        .withMessage("Price must be a positive number")
+        .toFloat(),
     body("inPrice")
         .notEmpty()
         .withMessage("In Price is required")
         .isFloat({ gt: 0 })
-        .withMessage("In Price must be a positive number"),
+        .withMessage("In Price must be a positive number")
+        .toFloat(),
     body("inStock")
         .notEmpty()
         .withMessage("Stock is required")
         .isInt({ gt: 0 })
-        .withMessage("Stock must be a positive integer"),
+        .withMessage("Stock must be a positive integer")
+        .toInt(),
     body("unit")
         .notEmpty()
         .withMessage("Unit is required")

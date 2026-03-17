@@ -5,6 +5,7 @@ import { FiSearch, FiPlusCircle, FiPrinter, FiToggleRight } from "react-icons/fi
 import { getLanguage } from '../../utils/services/language';
 import { useLanguage } from '../../providers/language.provider';
 import { useSearchParams } from 'react-router-dom';
+import AddPriceList from './addPriceList/AddPriceList.component.jsx';
 
 const PriceListContainer = () => {
     const [debouncedSearch, setDebouncedSearch] = useState('');
@@ -12,10 +13,10 @@ const PriceListContainer = () => {
 
     const [debouncedIdSearch, setDebouncedIdSearch] = useState('');
 
-
     const search = searchParams.get("search") || "";
     const idSearch = searchParams.get("article_number_search") || "";
     const page = Number(searchParams.get("page") || 1);
+    const isAddingProduct = searchParams.get("adding") === "true";
 
     const updateParams = (newParams) => {
         setSearchParams({
@@ -72,7 +73,7 @@ const PriceListContainer = () => {
                 </div>
 
                 <div className="action-buttons">
-                    <button>
+                    <button onClick={() => updateParams({ adding: isAddingProduct ? "false" : "true" })}>
                         <span className='text'>{btnNewProduct}</span> <span className="icon plus"><FiPlusCircle /></span>
                     </button>
                     <button>
@@ -83,6 +84,10 @@ const PriceListContainer = () => {
                     </button>
                 </div>
             </div>
+
+            {
+                isAddingProduct && <AddPriceList updateParams={updateParams} />
+            }
 
             <PriceListTable
                 search={debouncedSearch}
