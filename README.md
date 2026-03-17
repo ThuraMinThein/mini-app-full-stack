@@ -1,65 +1,48 @@
-# Mini App – Login & Pricelist
+# Mini App – Login & Price List
 
-A small full-stack application, demonstrates frontend development, backend API development, authentication, database design, and deployment.
+A comprehensive full-stack application demonstrating modern web development practices, including frontend and backend architecture, secure authentication, relational database design, and containerized deployment.
 
-The application contains two main parts:
+The application provides a robust platform for managing product price lists with an intuitive user interface and a secure, scalable backend.
 
-1. **Login page**
-2. **Pricelist page**
+## Features
 
-## Used Technologies
+- **Secure Authentication**: Robust user login and session management using JWT and Argon2 password hashing.
+- **Product Management**: Comprehensive price list and inventory tracking for products (stock, unit, in-price).
+- **Modern State Management**: Efficient server-state synchronization and caching using TanStack React Query.
+- **Form Handling & Validation**: Client-side form management using React Hook Form and server-side validation with Express Validator.
+- **Containerization & Deployment**: Fully containerized with Docker, reverse proxy via Nginx, and automated CI/CD pipelines using GitHub Actions deploying to AWS EC2.
 
-Frontend
-```
-React: 19
-Javascript (JSX)
-Pure CSS
-Tanstack/React Query: 5
-Js Cookie: 3
-React Hook Form: 7
-React Icons: 5
-React Router Dom: 7
-React Toastify: 11
-```
+## Technology Stack
 
-Backend
-```
-Express: 5
-Express Validator: 7
-Jsonwebtoken: 9
-Nodemon: 3
-PG: 8
-DotEnv: 17
-Argon2: 0.44
-Cors: 2
-Prisma Client: 7
-```
+**Frontend**
+- **Framework**: React 19 (Vite)
+- **State Management**: TanStack Query (React Query v5)
+- **Routing**: React Router DOM v7
+- **Forms**: React Hook Form
+- **Styling**: Pure CSS
+- **Utilities**: JS Cookie, React Icons, React Toastify
 
-Database
-```
-PostgreSQL: 17
-```
+**Backend**
+- **Framework**: Node.js with Express 5
+- **ORM**: Prisma Client / Postgres Adapter
+- **Database**: PostgreSQL 17
+- **Security & Auth**: JSON Web Token (JWT), Argon2, CORS
+- **Validation**: Express Validator
 
-Deployment
-```
-EC2 (AWS)
-```
+**Infrastructure**
+- **Containerization**: Docker & Docker Compose
+- **Web Server**: Nginx
+- **CI/CD**: GitHub Actions
+- **Cloud Provider**: AWS (EC2)
 
-CI/CD
-```
-GitHub Action
-```
+## Live Demo
 
-## Website
+**Website**: [Mini_Price_List](https://miniapp.thuraminthein.dev/)
 
-[Mini_Price_List](https://miniapp.thuraminthein.dev/)
+**Test Credentials**:
+- **Username**: `test@gmail.com`
+- **Password**: `123456789`
 
-## Test User
-```
-username: test@gmail.com
-password: 123456789
-```
+## Author
 
-# Author
-
-Thura Min Thein
+**Thura Min Thein**
